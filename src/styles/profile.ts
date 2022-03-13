@@ -44,6 +44,13 @@ export const AccountContainer = styled.div`
   display: flex;
   flex-direction: column;
 
+  img {
+    width: 168px;
+    height: 168px;
+    border-radius: 40px;
+    object-fit: contain;
+  }
+
   @media (max-width: 768px) {
     margin-bottom: 3rem;
     text-align: center;

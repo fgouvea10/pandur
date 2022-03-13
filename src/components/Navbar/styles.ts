@@ -30,6 +30,13 @@ export const Wrapper = styled.div`
   height: 6rem;
   position: relative;
 
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+
   > svg {
     font-size: 1.75rem;
     color: ${base_color};
@@ -51,8 +58,8 @@ export const Wrapper = styled.div`
   }
 `;
 export const UserAccount = styled.div`
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 20px;
   background: ${body_background_tertiary};
 

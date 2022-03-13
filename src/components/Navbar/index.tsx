@@ -27,6 +27,9 @@ export default function Navbar() {
 
   const { data: session } = useSession();
 
+  const userName = session?.user?.name;
+  const userImg = session?.user?.image;
+
   const checkIfUserIsLogged = () => {
     if (session) {
       setIsLogeed(true);
@@ -41,9 +44,11 @@ export default function Navbar() {
       <Header>
         <nav>
           <Wrapper>
-            <UserAccount className="vh_center">
-              <FaUser />
-            </UserAccount>
+            {(session && <img src={userImg} alt={userName} />) || (
+              <UserAccount className="vh_center">
+                <FaUser />
+              </UserAccount>
+            )}
 
             <InputBox>
               <input type="text" placeholder="Look for a topic or question" />
