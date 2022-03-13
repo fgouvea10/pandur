@@ -37,15 +37,11 @@ export default function Home({ posts }: IPosts) {
         <QuestionsContainer>
           <Wrapper>
             <h3>Trending questions about - Placeholder topic</h3>
-            <Link href="/">View all questions</Link>
           </Wrapper>
 
           <CardsContainer>
             {posts.map((post: PostNodeProps, index: number) => (
-              <>
-                <TopicCard key={(index + 1).toString()} post={post.node} />
-                {console.log('the post', post)}
-              </>
+              <TopicCard key={(index + 1).toString()} post={post.node} />
             ))}
           </CardsContainer>
         </QuestionsContainer>
