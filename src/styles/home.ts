@@ -10,7 +10,7 @@ export const Hero = styled.section`
   align-items: center;
 
   h1 {
-    font-size: 70px;
+    font-size: 56px;
     color: ${white};
     font-weight: 800;
     text-align: center;

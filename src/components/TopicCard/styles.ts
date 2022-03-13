@@ -43,6 +43,13 @@ export const CardHeader = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
+
+  img {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    object-fit: contain;
+  }
 `;
 
 export const Column = styled.div`

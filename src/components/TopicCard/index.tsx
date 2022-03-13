@@ -1,6 +1,9 @@
 import React from 'react';
 import { FaUser } from 'react-icons/fa';
 
+import { PostProps } from '@types';
+import { formatDate } from 'utils/formatDate';
+
 import {
   Container,
   CardHeader,
@@ -15,39 +18,36 @@ import {
   CardFooter,
 } from './styles';
 
-export default function TopicCard() {
+type CardProps = {
+  post: PostProps;
+};
+
+export default function TopicCard({ post }: CardProps) {
   return (
     <Container>
       <CardHeader>
         <Wrapper>
-          <UserAccount className="vh_center">
-            <FaUser />
-          </UserAccount>
+          {(post?.author?.photo.url === '' && (
+            <UserAccount className="vh_center">
+              <FaUser />
+            </UserAccount>
+          )) || <img src={post?.author?.photo.url} alt={post?.author?.name} />}
 
           <Column>
             <TitleContainer>
-              <Title>What is the meaning of life?</Title>
+              <Title>{post?.title}</Title>
               <Category>Life</Category>
             </TitleContainer>
             <AuthorText>
-              The asker is <cite>Felipe Gouvea</cite>
+              The asker is <cite>{post?.author?.name}</cite>
             </AuthorText>
           </Column>
         </Wrapper>
 
-        <time>Posted 5 minutes ago</time>
+        <time>Posted at {formatDate(post?.createdAt)}</time>
       </CardHeader>
 
-      <CardText>
-        So, my view about life is that... tincidunt lorem eu, consectetur cum.
-        Ornare amet tincidunt diam quis etiam in commodo integer. Massa maecenas
-        dolor enim volutpat enim. Integer accumsan, dui ullamcorper non quisque.
-        Ullamcorper viverra et eget fermentum ac. Feugiat fames tincidunt
-        sodales porta tincidunt eu eget nunc. Vulputate rhoncus dignissim
-        senectus facilisi volutpat libero, nec consectetur vel. Diam id
-        pharetra, adipiscing viverra ipsum mollis elementum. Urna mi nulla
-        luctus posuere auctor viverra et dignissim sit.
-      </CardText>
+      <CardText>{post?.excerpt}</CardText>
 
       <CardFooter>
         <div>562 answers</div>

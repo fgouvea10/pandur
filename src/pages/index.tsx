@@ -1,15 +1,24 @@
-import TopicCard from 'components/TopicCard';
-import Topics from 'components/Topics';
-import type { NextPage } from 'next';
+import React from 'react';
+
+import type { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+
+import { PostNodeProps } from '@types';
+import TopicCard from 'components/TopicCard';
+import Topics from 'components/Topics';
+import { getPosts } from 'services';
 import { CardsContainer, Hero, QuestionsContainer, Wrapper } from 'styles/home';
 
-const Home: NextPage = () => {
+type IPosts = {
+  posts: PostNodeProps[];
+};
+
+export default function Home({ posts }: IPosts) {
   return (
     <>
       <Head>
-        <title>Home - Pandur</title>
+        <title>Have a question? We have the answer! - Pandur</title>
         <meta
           name="description"
           content="Discuss random topics with people all over the world!"
@@ -32,14 +41,25 @@ const Home: NextPage = () => {
           </Wrapper>
 
           <CardsContainer>
-            {Array.from({ length: 4 }, (_, index) => (
-              <TopicCard key={(index + 1).toString()} />
+            {posts.map((post: PostNodeProps, index: number) => (
+              <>
+                <TopicCard key={(index + 1).toString()} post={post.node} />
+                {console.log('the post', post)}
+              </>
             ))}
           </CardsContainer>
         </QuestionsContainer>
       </main>
     </>
   );
-};
+}
 
-export default Home;
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = (await getPosts()) || [];
+
+  return {
+    props: {
+      posts,
+    },
+  };
+};
