@@ -3,6 +3,7 @@ import { FaUser } from 'react-icons/fa';
 import { MdNotifications } from 'react-icons/md';
 
 import Modal from 'components/Modal';
+import CreateTopicContent from 'components/Modal/content/CreateTopic';
 import SignUpContent from 'components/Modal/content/SignUp';
 import { useSession } from 'next-auth/react';
 
@@ -20,17 +21,18 @@ import {
 export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isLogged, setIsLogeed] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
+  const [isCreateQuestionModalOpen, setIsCreateQuestionModalOpen] =
+    useState(false);
 
   const { data: session } = useSession();
 
   const checkIfUserIsLogged = () => {
     if (session) {
-      console.log('session');
       setIsLogeed(true);
+      setIsCreateQuestionModalOpen(true);
     } else {
-      console.log('not session');
-      setIsModalOpen(true);
+      setIsSignUpModalOpen(true);
     }
   };
 
@@ -71,11 +73,23 @@ export default function Navbar() {
       </Header>
 
       <Modal
-        isModalOpen={isModalOpen}
-        onClose={() => setIsModalOpen(!isModalOpen)}
+        isModalOpen={isSignUpModalOpen}
+        onClose={() => setIsSignUpModalOpen(!isSignUpModalOpen)}
         width={20}
       >
         <SignUpContent isLogged={isLogged} />
+      </Modal>
+
+      <Modal
+        isModalOpen={isCreateQuestionModalOpen}
+        onClose={() => setIsCreateQuestionModalOpen(!isCreateQuestionModalOpen)}
+        width={40}
+      >
+        <CreateTopicContent
+          onClose={() =>
+            setIsCreateQuestionModalOpen(!isCreateQuestionModalOpen)
+          }
+        />
       </Modal>
     </>
   );
