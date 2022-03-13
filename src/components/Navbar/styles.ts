@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import {
   base_color,
   base_text,
+  body_background_secondary,
   body_background_tertiary,
   white,
 } from 'styles/colors';
@@ -27,6 +28,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   height: 6rem;
+  position: relative;
 
   > svg {
     font-size: 1.75rem;
@@ -94,3 +96,55 @@ export const InputBox = styled.div`
     display: none;
   }
 `;
+
+export const DropdownContainer = styled.div`
+  width: 300px;
+  background: ${body_background_tertiary};
+  position: absolute;
+  top: 120px;
+  z-index: 2;
+  border-radius: 8px;
+  /* box-shadow: var(--main-shadow); */
+  display: none !important;
+  opacity: 0;
+
+  .dropdown {
+    right: 12% !important;
+  }
+`;
+
+export const Dropdown = styled.ul`
+  width: 260px;
+  display: block;
+  padding: 15px 15px;
+  border-radius: var(--main-radius);
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s all;
+`;
+
+export const DropdownItem = styled.li`
+  h3 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 0;
+  }
+
+  p {
+    color: var(--main-text);
+    font-family: var(--body-font);
+    font-weight: 500;
+    font-size: 14px;
+    margin: 7px 0px 0px 0px;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    background: ${body_background_secondary};
+  }
+`;
+
+export const AllNotifications = styled.div``;

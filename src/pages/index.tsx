@@ -1,4 +1,3 @@
-import Navbar from 'components/Navbar';
 import TopicCard from 'components/TopicCard';
 import Topics from 'components/Topics';
 import type { NextPage } from 'next';
