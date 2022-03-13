@@ -4,6 +4,7 @@ import { MdNotifications } from 'react-icons/md';
 
 import Modal from 'components/Modal';
 import SignUpContent from 'components/Modal/content/SignUp';
+import { useSession } from 'next-auth/react';
 
 import {
   Header,
@@ -18,7 +19,20 @@ import {
 
 export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isLogged, setIsLogeed] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const { data: session } = useSession();
+
+  const checkIfUserIsLogged = () => {
+    if (session) {
+      console.log('session');
+      setIsLogeed(true);
+    } else {
+      console.log('not session');
+      setIsModalOpen(true);
+    }
+  };
 
   return (
     <>
@@ -37,7 +51,7 @@ export default function Navbar() {
 
           <Wrapper>
             <MdNotifications />
-            <button type="button" onClick={() => setIsModalOpen(!isModalOpen)}>
+            <button type="button" onClick={checkIfUserIsLogged}>
               Ask a question
             </button>
           </Wrapper>
@@ -61,7 +75,7 @@ export default function Navbar() {
         onClose={() => setIsModalOpen(!isModalOpen)}
         width={20}
       >
-        <SignUpContent />
+        <SignUpContent isLogged={isLogged} />
       </Modal>
     </>
   );

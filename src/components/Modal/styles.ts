@@ -29,6 +29,10 @@ export const Content = styled.div<ModalProps>`
   margin: auto;
   padding: 20px;
   border-radius: 10px;
+
+  @media (max-width: 768px) {
+    max-width: 100% !important;
+  }
 `;
 
 export const Close = styled.span`
