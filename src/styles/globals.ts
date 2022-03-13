@@ -41,5 +41,12 @@ export const GlobalStyle = createGlobalStyle`
 
   button {
     cursor: pointer;
+    border: none;
+  }
+
+  .vh_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;

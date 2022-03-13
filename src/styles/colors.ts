@@ -2,6 +2,8 @@ export const base_color = '#1F60F3';
 export const base_text = '#666786';
 export const base_text_low_opacity = 'rgb(102, 103, 134, 0.500)';
 
+export const white = '#fff';
+
 export const body_background = '#10182C';
 export const body_background_secondary = '#162037';
 export const body_background_tertiary = '#0C1324';
