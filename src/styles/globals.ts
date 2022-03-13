@@ -2,6 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 
 import { body_background } from './colors';
 
+const navbarHeight = '6rem';
+
 export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -42,6 +44,10 @@ export const GlobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
     border: none;
+  }
+
+  main {
+   margin-top: ${navbarHeight};
   }
 
   .vh_center {
