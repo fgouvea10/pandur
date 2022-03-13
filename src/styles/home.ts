@@ -38,6 +38,10 @@ export const QuestionsContainer = styled.section`
     color: ${base_color};
     font-size: 1rem;
     font-weight: 600;
+
+    @media (max-width: 768px) {
+      text-align: right;
+    }
   }
 
   @media (max-width: 1120px) {
