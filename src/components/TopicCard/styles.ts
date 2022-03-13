@@ -29,6 +29,15 @@ export const CardHeader = styled.div`
     font-size: 14px;
     pointer-events: none;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    time {
+      margin-top: 1.5rem;
+    }
+  }
 `;
 
 export const Wrapper = styled.div`

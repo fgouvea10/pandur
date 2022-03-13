@@ -39,6 +39,10 @@ export const QuestionsContainer = styled.section`
     font-size: 1rem;
     font-weight: 600;
   }
+
+  @media (max-width: 1120px) {
+    padding: 0 2rem;
+  }
 `;
 
 export const Wrapper = styled.div`

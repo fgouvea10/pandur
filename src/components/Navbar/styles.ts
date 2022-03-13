@@ -89,4 +89,8 @@ export const InputBox = styled.div`
     right: 20px;
     pointer-events: none;
   }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
