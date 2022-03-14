@@ -16,6 +16,7 @@ export const Container = styled.div`
   background: ${body_background_secondary};
   border-radius: 0.875rem;
   padding: 2rem 3rem;
+  cursor: pointer;
 `;
 
 export const CardHeader = styled.div`
