@@ -7,49 +7,45 @@ import {
   LinkTitle,
 } from './styles';
 
+const FOOTER_MOCK = [
+  {
+    id: 1,
+    name: 'Quick Links',
+    content: ['Quick links', 'Quick Links', 'Quick Links', 'Quick Links'],
+  },
+  {
+    id: 2,
+    name: 'Support',
+    content: ['Quick links', 'Quick Links', 'Quick Links', 'Quick Links'],
+  },
+  {
+    id: 3,
+    name: 'Company',
+    content: ['Quick links', 'Quick Links', 'Quick Links', 'Quick Links'],
+  },
+  {
+    id: 4,
+    name: 'Topics',
+    content: ['Quick links', 'Quick Links', 'Quick Links', 'Quick Links'],
+  },
+];
+
 export default function Footer() {
   return (
     <Container>
       <LinksContainer>
-        <Content>
-          <LinkTitle>Quick links</LinkTitle>
-          <ul>
-            <li>Quick links</li>
-            <li>Quick links</li>
-            <li>Quick links</li>
-            <li>Quick links</li>
-          </ul>
-        </Content>
-
-        <Content>
-          <LinkTitle>Support</LinkTitle>
-          <ul>
-            <li>Quick links</li>
-            <li>Quick links</li>
-            <li>Quick links</li>
-            <li>Quick links</li>
-          </ul>
-        </Content>
-
-        <Content>
-          <LinkTitle>Company</LinkTitle>
-          <ul>
-            <li>Quick links</li>
-            <li>Quick links</li>
-            <li>Quick links</li>
-            <li>Quick links</li>
-          </ul>
-        </Content>
-
-        <Content>
-          <LinkTitle>Topics</LinkTitle>
-          <ul>
-            <li>Quick links</li>
-            <li>Quick links</li>
-            <li>Quick links</li>
-            <li>Quick links</li>
-          </ul>
-        </Content>
+        {FOOTER_MOCK.map((element) => (
+          <Content key={element.id}>
+            <LinkTitle>{element.name}</LinkTitle>
+            <ul>
+              {element.content.map((item, index) => (
+                <li key={(index + 1).toString()}>
+                  <a href="/">{item}</a>
+                </li>
+              ))}
+            </ul>
+          </Content>
+        ))}
       </LinksContainer>
 
       <h3>Made with love by Felipe Gouvea</h3>

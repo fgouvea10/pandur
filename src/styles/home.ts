@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { base_color, white } from './colors';
+import { base_color, base_text, white } from './colors';
 
 export const Hero = styled.section`
   width: 100%;
@@ -62,4 +62,11 @@ export const CardsContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 3rem;
+
+  span {
+    margin-top: 1.5rem;
+    color: ${base_text};
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
 `;

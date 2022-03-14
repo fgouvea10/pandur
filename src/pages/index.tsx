@@ -2,7 +2,6 @@ import React from 'react';
 
 import type { GetStaticProps } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 
 import { PostNodeProps } from '@types';
 import TopicCard from 'components/TopicCard';
@@ -40,9 +39,10 @@ export default function Home({ posts }: IPosts) {
           </Wrapper>
 
           <CardsContainer>
-            {posts.map((post: PostNodeProps, index: number) => (
-              <TopicCard key={(index + 1).toString()} post={post.node} />
-            ))}
+            {(posts.length <= 0 && <span>Nothing posted yet.</span>) ||
+              posts.map((post: PostNodeProps, index: number) => (
+                <TopicCard key={(index + 1).toString()} post={post.node} />
+              ))}
           </CardsContainer>
         </QuestionsContainer>
       </main>

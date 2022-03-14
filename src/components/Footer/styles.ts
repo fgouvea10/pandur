@@ -8,7 +8,7 @@ export const Footer = styled.footer`
 
   h3 {
     color: ${white};
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     margin-top: 3rem;
     padding-bottom: 3rem;
     text-align: center;
