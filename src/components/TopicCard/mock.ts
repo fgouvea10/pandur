@@ -9,6 +9,6 @@ export const postMock = {
   },
   title: 'Example of post',
   createdAt: '00/00/0000',
-  excerpt: 'This is just  a test',
+  excerpt: 'This is just a test',
   slug: 'posttest',
 };
