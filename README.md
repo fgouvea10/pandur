@@ -15,6 +15,8 @@ npm install
 
 # then
 yarn dev
+# or
+npm run dev
 ```
 
 You can't post questions or anwser, yet. Today, this project is using GraphCMS for post the content.
